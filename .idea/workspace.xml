@@ -9,8 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Use a LiveList object to manage live streams globally.">
+    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Commit before introducing Ktor.">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/server/GetMsgRoute.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/server/ServerRunner.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/cq_backend_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/cq_backend_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +32,7 @@
       <list>
         <option value="Kotlin Enum" />
         <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -56,7 +61,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="kotlin&#10;GitIgnore" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -72,6 +77,9 @@
   <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="cq_backend.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/cq_backend_jar/cq_backend.jar" />
+      <option name="VM_PARAMETERS" value="-Dorg.slf4j.simpleLogger.defaultLogLevel=debug" />
+      <option name="PROGRAM_PARAMETERS" value="-r $PROJECT_DIR$/src/main/resources/recipients.test.json -d" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
     </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
@@ -79,7 +87,7 @@
       <module name="cq_backend.main" />
       <option name="PROGRAM_PARAMETERS" value="-r $PROJECT_DIR$/src/main/resources/recipients.test.json -d" />
       <shortenClasspath name="NONE" />
-      <option name="VM_PARAMETERS" value="-Dorg.slf4j.simpleLogger.defaultLogLevel=debug" />
+      <option name="VM_PARAMETERS" value="-Dorg.slf4j.simpleLogger.defaultLogLevel=info" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -153,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628071350285</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Commit before introducing Ktor.">
+      <created>1628091530345</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1628091530345</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,6 +191,7 @@
     <MESSAGE value="Implemented Debug Mode." />
     <MESSAGE value="Configured Logging Level." />
     <MESSAGE value="Use a LiveList object to manage live streams globally." />
-    <option name="LAST_COMMIT_MESSAGE" value="Use a LiveList object to manage live streams globally." />
+    <MESSAGE value="Commit before introducing Ktor." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit before introducing Ktor." />
   </component>
 </project>

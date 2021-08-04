@@ -6,6 +6,7 @@ import kotlinx.coroutines.*
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.*
 import mu.KotlinLogging
+import server.ServerRunner
 import java.time.LocalDateTime
 
 private val logger = KotlinLogging.logger {}
@@ -18,6 +19,8 @@ class Runner: CliktCommand() {
         // Reading recipients from config
         val recipients: Recipients = Json.decodeFromString<Recipients>(configRecipients!!.readText())
         LiveList(debugMode)
+
+        ServerRunner().start()
 
         runBlocking {
             while (true) {
