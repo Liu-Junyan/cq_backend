@@ -9,12 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Configured Logging Level.">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/LiveList.kt" afterDir="false" />
+    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Use a LiveList object to manage live streams globally.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Session.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Session.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/recipients.test.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/recipients.test.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,9 +56,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="kotlin&#10;GitIgnore" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
@@ -149,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628063169989</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Use a LiveList object to manage live streams globally.">
+      <created>1628071350285</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1628071350285</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,6 +175,7 @@
     <MESSAGE value="Added release.sh to Build." />
     <MESSAGE value="Implemented Debug Mode." />
     <MESSAGE value="Configured Logging Level." />
-    <option name="LAST_COMMIT_MESSAGE" value="Configured Logging Level." />
+    <MESSAGE value="Use a LiveList object to manage live streams globally." />
+    <option name="LAST_COMMIT_MESSAGE" value="Use a LiveList object to manage live streams globally." />
   </component>
 </project>
