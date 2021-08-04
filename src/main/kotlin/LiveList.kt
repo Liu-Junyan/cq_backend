@@ -1,3 +1,4 @@
+import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.*
 import mu.KotlinLogging
 import java.net.URL
@@ -22,7 +23,7 @@ class LiveList(debugMode: Boolean) {
 
         private fun checkUpdate() {
             val initialTime = LocalDateTime.now()
-            logger.debug { "Check for Update at $initialTime" }
+            logger.debug { "Check for update at $initialTime" }
             val interval = if (debugMode) {
                 ChronoUnit.SECONDS.between(lastUpdateTime, initialTime)
             } else {
@@ -36,25 +37,22 @@ class LiveList(debugMode: Boolean) {
         private fun update(initialTime: LocalDateTime) {
             lastUpdateTime = initialTime
             val response = getResponse()
-            liveList = parseJson(response)
+            liveList.clear()
+            parseJson(response)
             logger.info { "LiveList updated at $initialTime" }
         }
         private fun getResponse(): String {
             val url = "https://api.holotools.app/v1/live?hide_channel_desc=1&lookback_hours=0"
             return URL(url).readText()
         }
-        private fun parseJson(text: String): MutableList<Live> {
-            val obj = Json.parseToJsonElement(text)
-            val liveList = obj.jsonObject["live"]!!.jsonArray
-            val res = mutableListOf<Live>()
-            for (live in liveList) {
-                if (live.jsonObject["channel"]!!.jsonObject["subscriber_count"]!!.jsonPrimitive.int > 500000) {
-                    val currLive = Live(live.jsonObject["channel"]!!.jsonObject["name"]!!.jsonPrimitive.content, live.jsonObject["title"]!!.jsonPrimitive.content)
-                    res.add(currLive)
+        private fun parseJson(text: String) {
+            val liveJSONList = Json {ignoreUnknownKeys = true} .decodeFromString<LiveJSONList>(text)
+            for (live in liveJSONList.live) {
+                if (live.channel.subscriber_count > 50_0000) {
+                    liveList.add(live)
                 }
             }
-            res.sortBy { it.channel }
-            return res
+            liveList.sortBy { it.channel.name }
         }
     }
 }

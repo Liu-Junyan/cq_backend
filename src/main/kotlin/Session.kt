@@ -15,9 +15,9 @@ class Session(private val recipient: Recipient, private val recipientType: Recip
         }
     }
 
-    private fun constructMsg(liveObjList: MutableList<Live>){
-        for (live in liveObjList){
-            msg += "\n${live.channel}: ${live.title}"
+    private fun constructMsg(liveList: MutableList<Live>){
+        for (live in liveList){
+            msg += "\n${live.channel.name}: ${live.title}"
         }
         msg = URLEncoder.encode(msg, "utf-8")
     }

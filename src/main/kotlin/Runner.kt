@@ -20,7 +20,7 @@ class Runner: CliktCommand() {
         val recipients: Recipients = Json.decodeFromString<Recipients>(configRecipients!!.readText())
         LiveList(debugMode)
 
-        ServerRunner().start()
+//        ServerRunner().start()
 
         runBlocking {
             while (true) {
