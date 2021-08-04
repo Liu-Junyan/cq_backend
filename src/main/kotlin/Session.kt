@@ -16,6 +16,9 @@ class Session(private val recipient: Recipient, private val recipientType: Recip
     }
 
     private fun constructMsg(liveList: MutableList<Live>){
+        if (liveList.isEmpty()) {
+            msg = "NaN"
+        }
         for (live in liveList){
             msg += "\n${live.channel.name}: ${live.title}"
         }

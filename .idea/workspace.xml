@@ -9,11 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Implemented server demo.">
+    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Use decodeFromString to decode Live.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Live.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Live.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/LiveList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/LiveList.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Session.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Session.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -174,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628101556904</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Use decodeFromString to decode Live.">
+      <created>1628104939216</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1628104939216</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,6 +204,7 @@
     <MESSAGE value="Use a LiveList object to manage live streams globally." />
     <MESSAGE value="Commit before introducing Ktor." />
     <MESSAGE value="Implemented server demo." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented server demo." />
+    <MESSAGE value="Use decodeFromString to decode Live." />
+    <option name="LAST_COMMIT_MESSAGE" value="Use decodeFromString to decode Live." />
   </component>
 </project>

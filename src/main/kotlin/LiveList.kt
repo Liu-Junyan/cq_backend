@@ -10,7 +10,6 @@ private val logger = KotlinLogging.logger {}
 class LiveList(debugMode: Boolean) {
     init {
         LiveList.debugMode = debugMode
-        update(LocalDateTime.now())
     }
     companion object {
         var liveList: MutableList<Live> = mutableListOf<Live>()
@@ -18,19 +17,23 @@ class LiveList(debugMode: Boolean) {
                 checkUpdate()
                 return field
             }
-        private lateinit var lastUpdateTime: LocalDateTime
+        private var lastUpdateTime: LocalDateTime? = null
         private var debugMode: Boolean = false
 
         private fun checkUpdate() {
             val initialTime = LocalDateTime.now()
-            logger.debug { "Check for update at $initialTime" }
-            val interval = if (debugMode) {
-                ChronoUnit.SECONDS.between(lastUpdateTime, initialTime)
-            } else {
-                ChronoUnit.MINUTES.between(lastUpdateTime, initialTime)
-            }
-            if (interval >= 29) {
+            if (lastUpdateTime == null) {
                 update(initialTime)
+            } else {
+                logger.debug { "Check for update at $initialTime" }
+                val interval = if (debugMode) {
+                    ChronoUnit.SECONDS.between(lastUpdateTime, initialTime)
+                } else {
+                    ChronoUnit.MINUTES.between(lastUpdateTime, initialTime)
+                }
+                if (interval >= 29) {
+                    update(initialTime)
+                }
             }
         }
 
