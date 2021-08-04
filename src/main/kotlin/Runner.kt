@@ -1,4 +1,5 @@
 import com.github.ajalt.clikt.core.CliktCommand
+import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.file
 import kotlinx.coroutines.*
@@ -12,6 +13,7 @@ private val logger = KotlinLogging.logger {}
 
 class Runner: CliktCommand() {
     val configRecipients by option("-r", "--recipients", help = "Recipients Config path").file()
+    val debugMode by option("-d", "--debug", help = "Debug Mode").flag()
 
     override fun run() {
         // Reading recipients from config
@@ -20,7 +22,7 @@ class Runner: CliktCommand() {
         runBlocking {
             while (true) {
                 val currentTime = LocalDateTime.now()
-                val min = currentTime.format(DateTimeFormatter.ofPattern("mm")).toInt() // Should be change to mm
+                val min = currentTime.format(DateTimeFormatter.ofPattern(if (debugMode) "ss" else "mm")).toInt()
                 logger.info { min }
                 if (min == 2 || min == 32) {
                     launch {
@@ -32,7 +34,7 @@ class Runner: CliktCommand() {
                         }
                     }
                 }
-                delay(60_000) // Wait a minute, should be changed to 60_000
+                delay(if (debugMode) 1_000 else 60_000)
             }
         }
     }

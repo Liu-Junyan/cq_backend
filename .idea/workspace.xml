@@ -9,9 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Added License.">
-      <change afterPath="$PROJECT_DIR$/release.sh" afterDir="false" />
+    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Added release.sh to Build.">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/recipients.test.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/release.sh" beforeDir="false" afterPath="$PROJECT_DIR$/release.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +67,7 @@
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainKt" />
       <module name="cq_backend.main" />
-      <option name="PROGRAM_PARAMETERS" value="-r $PROJECT_DIR$/src/main/resources/recipients.json" />
+      <option name="PROGRAM_PARAMETERS" value="-r $PROJECT_DIR$/src/main/resources/recipients.test.json" />
       <shortenClasspath name="NONE" />
       <option name="VM_PARAMETERS" value="-Dlogging.level.root=DEBUG" />
       <method v="2">
@@ -113,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628058945660</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added release.sh to Build.">
+      <created>1628059646921</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1628059646921</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -132,6 +141,7 @@
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Implemented Schedule Pool" />
     <MESSAGE value="Added License." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added License." />
+    <MESSAGE value="Added release.sh to Build." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added release.sh to Build." />
   </component>
 </project>
