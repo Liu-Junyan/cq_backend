@@ -13,16 +13,17 @@ private val logger = KotlinLogging.logger {}
 
 class Runner: CliktCommand() {
     private val configRecipients by option("-r", "--recipients", help = "Recipients Config path").file()
-    val debugMode by option("-d", "--debug", help = "Debug Mode").flag()
+    private val debugMode by option("-d", "--debug", help = "Debug Mode").flag()
 
     override fun run() {
         // Reading recipients from config
         val recipients: Recipients = Json.decodeFromString<Recipients>(configRecipients!!.readText())
+        LiveList(debugMode)
 
         runBlocking {
             while (true) {
                 val currentTime = LocalDateTime.now()
-                val min = currentTime.format(DateTimeFormatter.ofPattern(if (debugMode) "ss" else "mm")).toInt()
+                val min = if (debugMode) currentTime.second else currentTime.minute
                 logger.debug { min }
                 if (min == 2 || min == 32) {
                     launch {
@@ -38,9 +39,4 @@ class Runner: CliktCommand() {
             }
         }
     }
-
-
-
-
-
 }
