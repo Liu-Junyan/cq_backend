@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter
 private val logger = KotlinLogging.logger {}
 
 class Runner: CliktCommand() {
-    val configRecipients by option("-r", "--recipients", help = "Recipients Config path").file()
+    private val configRecipients by option("-r", "--recipients", help = "Recipients Config path").file()
     val debugMode by option("-d", "--debug", help = "Debug Mode").flag()
 
     override fun run() {
@@ -23,7 +23,7 @@ class Runner: CliktCommand() {
             while (true) {
                 val currentTime = LocalDateTime.now()
                 val min = currentTime.format(DateTimeFormatter.ofPattern(if (debugMode) "ss" else "mm")).toInt()
-                logger.info { min }
+                logger.debug { min }
                 if (min == 2 || min == 32) {
                     launch {
                         for (recipient in recipients.groups) {

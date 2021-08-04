@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Added release.sh to Build.">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/recipients.test.json" afterDir="false" />
+    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Configured Logging Level.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/release.sh" beforeDir="false" afterPath="$PROJECT_DIR$/release.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Session.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Session.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,9 +66,9 @@
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainKt" />
       <module name="cq_backend.main" />
-      <option name="PROGRAM_PARAMETERS" value="-r $PROJECT_DIR$/src/main/resources/recipients.test.json" />
+      <option name="PROGRAM_PARAMETERS" value="-r $PROJECT_DIR$/src/main/resources/recipients.test.json -d" />
       <shortenClasspath name="NONE" />
-      <option name="VM_PARAMETERS" value="-Dlogging.level.root=DEBUG" />
+      <option name="VM_PARAMETERS" value="-Dorg.slf4j.simpleLogger.defaultLogLevel=debug" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628059646921</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Implemented Debug Mode.">
+      <created>1628062099423</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1628062099423</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,6 +148,8 @@
     <MESSAGE value="Implemented Schedule Pool" />
     <MESSAGE value="Added License." />
     <MESSAGE value="Added release.sh to Build." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added release.sh to Build." />
+    <MESSAGE value="Implemented Debug Mode." />
+    <MESSAGE value="Configured Logging Level." />
+    <option name="LAST_COMMIT_MESSAGE" value="Configured Logging Level." />
   </component>
 </project>

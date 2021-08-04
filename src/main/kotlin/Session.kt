@@ -5,9 +5,10 @@ import java.net.URLEncoder
 
 private val logger = KotlinLogging.logger {}
 
-class Session(val recipient: Recipient, val recipientType: RecipientType, val min: Int, var msg: String = "LIVE NOW:") {
+class Session(private val recipient: Recipient, private val recipientType: RecipientType, min: Int) {
+    private var msg: String = "LIVE NOW:"
     init {
-        logger.info { "${recipient.id}: ${recipient.frequency}, $recipientType" }
+        logger.debug { "${recipient.id}: ${recipient.frequency}, $recipientType" }
         if (!(recipient.frequency == 1 && min == 32)){ // Skip this situation
             val response = getResponse()
             val liveObjList = parseJson(response)
@@ -40,14 +41,12 @@ class Session(val recipient: Recipient, val recipientType: RecipientType, val mi
         msg = URLEncoder.encode(msg, "utf-8")
     }
     private fun sendMsg(){
-        if (recipientType == RecipientType.GROUP) {
-            val url = "http://127.0.0.1:5700/send_msg?group_id=${recipient.id}&message=$msg"
-            val response = URL(url).readText()
-            logger.info {"Sent to group ${recipient.id}, result is $response"}
-        } else if (recipientType == RecipientType.INDIVIDUAL) {
-            val url = "http://127.0.0.1:5700/send_msg?user_id=${recipient.id}&message=$msg"
-            val response = URL(url).readText()
-            logger.info { "Sent to individual ${recipient.id}, result is $response" }
+        val url = if (recipientType == RecipientType.GROUP) {
+            "http://127.0.0.1:5700/send_msg?group_id=${recipient.id}&message=$msg"
+        } else {
+            "http://127.0.0.1:5700/send_msg?user_id=${recipient.id}&message=$msg"
         }
+        val response = URL(url).readText()
+        logger.info { "Sent to ${recipientType.name} ${recipient.id}, result is $response" }
     }
 }
