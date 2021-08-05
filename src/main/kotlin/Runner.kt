@@ -6,6 +6,7 @@ import com.github.ajalt.clikt.parameters.types.file
 import kotlinx.coroutines.*
 import kotlinx.serialization.decodeFromString
 import mu.KotlinLogging
+import server.ServerRunner
 import java.io.IOException
 import java.time.LocalDateTime
 
@@ -20,11 +21,11 @@ class Runner: CliktCommand() {
         val configRecipientsText = configRecipients?.readText() ?: throw IOException("Recipient config file does not exist.")
         val recipientsConfig = Yaml.default.decodeFromString<RecipientsConfig>(configRecipientsText)
         LiveList.activateDebugMode(debugMode)
+        SessionPool.load(recipientsConfig)
 
-//        ServerRunner().start()
+        ServerRunner().start()
 
         runBlocking {
-            SessionPool.load(recipientsConfig)
             while (true) {
                 val currentTime = LocalDateTime.now()
                 val min = if (debugMode) currentTime.second else currentTime.minute

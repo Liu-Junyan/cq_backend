@@ -10,7 +10,7 @@ object SessionPool {
     fun periodicFire(min: Int) {
         for (session in sessions) {
             if (session.shouldSendAt(min)) {
-                session.send()
+                session.periodicUpdateAndSend()
             }
         }
     }

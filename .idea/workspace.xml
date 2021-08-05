@@ -9,10 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Implemented SessionPool">
+    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Use object instead of companion object in classes.">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/server/RequestType.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/cq_backend_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/cq_backend_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/LiveList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/LiveList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Live.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Live.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Session.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Session.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/SessionPool.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/SessionPool.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/server/GetMsgRoute.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/server/ServerRunner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/server/ServerRunner.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +66,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Kotlin" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -72,10 +80,10 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt">
+  <component name="RunManager" selected="Shell Script.release.sh">
     <configuration name="cq_backend.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/cq_backend_jar/cq_backend.jar" />
-      <option name="VM_PARAMETERS" value="-Dorg.slf4j.simpleLogger.defaultLogLevel=debug" />
+      <option name="VM_PARAMETERS" value="-Dorg.slf4j.simpleLogger.defaultLogLevel=info" />
       <option name="PROGRAM_PARAMETERS" value="-r $PROJECT_DIR$/src/main/resources/recipients.test.yaml -d" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
@@ -85,7 +93,7 @@
       <module name="cq_backend.main" />
       <option name="PROGRAM_PARAMETERS" value="-r $PROJECT_DIR$/src/main/resources/recipients.test.yaml -d" />
       <shortenClasspath name="NONE" />
-      <option name="VM_PARAMETERS" value="-Dorg.slf4j.simpleLogger.defaultLogLevel=debug" />
+      <option name="VM_PARAMETERS" value="-Dorg.slf4j.simpleLogger.defaultLogLevel=info" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -112,9 +120,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.cq_backend.jar" />
         <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Shell Script.release.sh" />
-        <item itemvalue="JAR Application.cq_backend.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -218,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628167096418</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Use object instead of companion object in classes.">
+      <created>1628167844409</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1628167844409</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -247,6 +262,7 @@
     <MESSAGE value="Changed LiveList update strategy." />
     <MESSAGE value="Use YAML instead of JSON." />
     <MESSAGE value="Implemented SessionPool" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented SessionPool" />
+    <MESSAGE value="Use object instead of companion object in classes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Use object instead of companion object in classes." />
   </component>
 </project>
