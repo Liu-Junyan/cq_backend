@@ -4,18 +4,21 @@ import java.net.URLEncoder
 
 private val logger = KotlinLogging.logger {}
 
-class Session(private val recipient: Recipient, min: Int) {
-    private var msg: String = "LIVE NOW:"
-    init {
-        logger.debug { "${recipient.id}: ${recipient.frequency}, ${recipient.type}" }
-        if (!(recipient.frequency == 1 && min == 32)){ // Skip this situation
-            val liveList = LiveList.liveList
-            constructMsg(liveList)
-            sendMsg()
-        }
+class Session(val recipient: Recipient) {
+    private var liveList: MutableList<Live> = mutableListOf()
+
+    fun send() {
+        liveList = LiveList.get()
+        sendMsg(constructMsg(liveList))
     }
 
-    private fun constructMsg(liveList: MutableList<Live>){
+    fun shouldSendAt(min: Int): Boolean {
+        val element = 60 / recipient.frequency
+        return min % element == 0
+    }
+
+    private fun constructMsg(liveList: MutableList<Live>): String{
+        var msg = "LIVE NOW:"
         if (liveList.isEmpty()) {
             msg = "NaN"
         }
@@ -23,8 +26,9 @@ class Session(private val recipient: Recipient, min: Int) {
             msg += "\n${live.channel.name}: ${live.title}"
         }
         msg = URLEncoder.encode(msg, "utf-8")
+        return msg
     }
-    private fun sendMsg(){
+    private fun sendMsg(msg: String){
         val url = if (recipient.type == RecipientType.Group) {
             "http://127.0.0.1:5700/send_msg?group_id=${recipient.id}&message=$msg"
         } else {

@@ -9,23 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Changed LiveList update strategy.">
-      <change afterPath="$PROJECT_DIR$/shell/release.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shell/run/debug.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shell/run/run.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/recipients.test.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/recipients.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/cq_backend_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/cq_backend_jar.xml" afterDir="false" />
+    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Implemented SessionPool">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/SessionPool.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/release.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/RecipientType.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Recipients.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Recipients.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/LiveList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/LiveList.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Session.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Session.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/recipients.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/recipients.test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/recipients.test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/recipients.test.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +31,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Enum" />
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -85,7 +75,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.release.sh">
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="cq_backend.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/cq_backend_jar/cq_backend.jar" />
       <option name="VM_PARAMETERS" value="-Dorg.slf4j.simpleLogger.defaultLogLevel=debug" />
@@ -125,9 +115,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Shell Script.release.sh" />
         <item itemvalue="JAR Application.cq_backend.jar" />
-        <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
   </component>
@@ -217,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628106212198</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Use YAML instead of JSON.">
+      <created>1628156466842</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1628156466842</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -244,6 +241,8 @@
     <MESSAGE value="Implemented server demo." />
     <MESSAGE value="Use decodeFromString to decode Live." />
     <MESSAGE value="Changed LiveList update strategy." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed LiveList update strategy." />
+    <MESSAGE value="Use YAML instead of JSON." />
+    <MESSAGE value="Implemented SessionPool" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented SessionPool" />
   </component>
 </project>

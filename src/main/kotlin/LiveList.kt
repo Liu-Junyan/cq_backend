@@ -7,19 +7,19 @@ import java.time.temporal.ChronoUnit
 
 private val logger = KotlinLogging.logger {}
 
-class LiveList(debugMode: Boolean) {
-    init {
-        LiveList.debugMode = debugMode
-    }
+class LiveList() {
     companion object {
-        var liveList: MutableList<Live> = mutableListOf<Live>()
-            get() {
-                checkUpdate()
-                return field
-            }
+        private var liveList: MutableList<Live> = mutableListOf<Live>()
         private var lastUpdateTime: LocalDateTime? = null
         private var debugMode: Boolean = false
 
+        fun get(): MutableList<Live> {
+            checkUpdate()
+            return liveList
+        }
+        fun activateDebugMode(debugMode: Boolean) {
+            this.debugMode = debugMode
+        }
         private fun checkUpdate() {
             val initialTime = LocalDateTime.now()
             if (lastUpdateTime == null) {
