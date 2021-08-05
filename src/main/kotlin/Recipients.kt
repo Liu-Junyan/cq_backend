@@ -1,7 +1,14 @@
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-@Serializable
-data class Recipients(val groups: List<Recipient>, val individuals: List<Recipient>)
+enum class RecipientType {
+    Group, Individual
+}
 
 @Serializable
-data class Recipient(val id: Long, val frequency: Int)
+data class RecipientsConfig(val recipients: List<Recipient>)
+
+@Serializable
+@SerialName("recipient")
+data class Recipient(val id: Long, val type: RecipientType, val frequency: Int)
+

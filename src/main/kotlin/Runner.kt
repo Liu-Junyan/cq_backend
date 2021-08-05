@@ -1,12 +1,13 @@
+import com.charleskorn.kaml.Yaml
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.file
 import kotlinx.coroutines.*
 import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.*
 import mu.KotlinLogging
 import server.ServerRunner
+import java.io.IOException
 import java.time.LocalDateTime
 
 private val logger = KotlinLogging.logger {}
@@ -17,7 +18,8 @@ class Runner: CliktCommand() {
 
     override fun run() {
         // Reading recipients from config
-        val recipients: Recipients = Json.decodeFromString<Recipients>(configRecipients!!.readText())
+        val configRecipientsText = configRecipients?.readText() ?: throw IOException("Recipient config file does not exist.")
+        val recipientsConfig = Yaml.default.decodeFromString<RecipientsConfig>(configRecipientsText)
         LiveList(debugMode)
 
 //        ServerRunner().start()
@@ -29,11 +31,8 @@ class Runner: CliktCommand() {
                 logger.debug { min }
                 if (min == 2 || min == 32) {
                     launch {
-                        for (recipient in recipients.groups) {
-                            Session(recipient, RecipientType.GROUP, min)
-                        }
-                        for (recipient in recipients.individuals) {
-                            Session(recipient, RecipientType.INDIVIDUAL, min)
+                        for (recipient in recipientsConfig.recipients) {
+                            Session(recipient, min)
                         }
                     }
                 }
