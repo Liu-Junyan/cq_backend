@@ -17,6 +17,10 @@ object LiveList {
         checkUpdate()
         return liveList
     }
+    fun init(debugMode: Boolean) {
+        activateDebugMode(debugMode)
+        checkUpdate()
+    }
     fun activateDebugMode(debugMode: Boolean) {
         this.debugMode = debugMode
     }
@@ -31,7 +35,7 @@ object LiveList {
             } else {
                 ChronoUnit.MINUTES.between(lastUpdateTime, initialTime)
             }
-            if (interval >= 29) {
+            if (interval >= if (debugMode) 29 else 4) {
                 update(initialTime)
             }
         }
@@ -49,6 +53,7 @@ object LiveList {
         return URL(url).readText()
     }
     private fun parseJson(text: String) {
+        logger.debug { text }
         val liveJSONList = Json {ignoreUnknownKeys = true} .decodeFromString<LiveJSONList>(text)
         for (live in liveJSONList.live) {
             if (live.channel.subscriber_count > 50_0000) {

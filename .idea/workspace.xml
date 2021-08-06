@@ -9,17 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Use object instead of companion object in classes.">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/server/RequestType.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/cq_backend_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/cq_backend_jar.xml" afterDir="false" />
+    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Implemented a server to respond to POST from cqhttp.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shell/release.sh" beforeDir="false" afterPath="$PROJECT_DIR$/shell/release.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Live.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Live.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/LiveList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/LiveList.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Session.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Session.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/SessionPool.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/SessionPool.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/server/GetMsgRoute.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/server/ServerRunner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/server/ServerRunner.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628167844409</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Implemented a server to respond to POST from cqhttp.">
+      <created>1628191543394</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1628191543394</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,6 +267,7 @@
     <MESSAGE value="Use YAML instead of JSON." />
     <MESSAGE value="Implemented SessionPool" />
     <MESSAGE value="Use object instead of companion object in classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Use object instead of companion object in classes." />
+    <MESSAGE value="Implemented a server to respond to POST from cqhttp." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented a server to respond to POST from cqhttp." />
   </component>
 </project>

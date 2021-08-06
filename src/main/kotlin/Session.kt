@@ -8,15 +8,14 @@ class Session(val recipient: Recipient) {
     private var liveList: MutableList<Live> = mutableListOf()
 
     init {
-        sendMsg("""Bot started. Use ".help" for guide.""")
+//        sendMsg("""Bot started. Use ".help" for guide.""")
     }
 
     fun getNthLive(n: Int): Live? {
         return if (n <= liveList.size) liveList[n - 1] else null
     }
 
-    fun periodicUpdateAndSend() {
-        liveList = LiveList.get()
+    fun updateAndSendLive() {
         val msg = liveMsg()
         sendMsg(msg)
     }
@@ -26,7 +25,8 @@ class Session(val recipient: Recipient) {
         return min % element == 0
     }
 
-    fun liveMsg(): String{
+    fun liveMsg(): String {
+        liveList = LiveList.get()
         var msg = "LIVE NOW:"
         if (liveList.isEmpty()) {
             msg = "NaN"

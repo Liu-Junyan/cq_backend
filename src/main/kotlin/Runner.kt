@@ -20,7 +20,9 @@ class Runner: CliktCommand() {
         // Reading recipients from config
         val configRecipientsText = configRecipients?.readText() ?: throw IOException("Recipient config file does not exist.")
         val recipientsConfig = Yaml.default.decodeFromString<RecipientsConfig>(configRecipientsText)
-        LiveList.activateDebugMode(debugMode)
+
+        LiveList.init(debugMode)
+
         SessionPool.load(recipientsConfig)
 
         ServerRunner().start()
@@ -29,7 +31,7 @@ class Runner: CliktCommand() {
             while (true) {
                 val currentTime = LocalDateTime.now()
                 val min = if (debugMode) currentTime.second else currentTime.minute
-                logger.debug { min }
+                logger.debug { "Clock: $min" }
                 launch {
                     SessionPool.periodicFire(min)
                 }

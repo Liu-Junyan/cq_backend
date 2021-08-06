@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 data class LiveJSONList(val live: List<Live>)
 
 @Serializable
-data class Live(val channel: Channel, var title: String, val yt_video_key: String, val live_viewers: Int) {
+data class Live(val channel: Channel, var title: String, val yt_video_key: String, val live_viewers: Int? = null) {
     init {
         title = removeBackBracket(title)
     }
