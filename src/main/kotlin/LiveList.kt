@@ -9,21 +9,24 @@ private val logger = KotlinLogging.logger {}
 
 
 object LiveList {
-    private var liveList: MutableList<Live> = mutableListOf<Live>()
+    private var globalLiveList: MutableList<Live> = mutableListOf<Live>()
     private var lastUpdateTime: LocalDateTime? = null
     private var debugMode: Boolean = false
 
-    fun get(): MutableList<Live> {
-        checkUpdate()
-        return liveList
-    }
     fun init(debugMode: Boolean) {
         activateDebugMode(debugMode)
         checkUpdate()
     }
-    fun activateDebugMode(debugMode: Boolean) {
+
+    fun getGlobalLiveList(): MutableList<Live> {
+        checkUpdate()
+        return globalLiveList
+    }
+
+    private fun activateDebugMode(debugMode: Boolean) {
         this.debugMode = debugMode
     }
+
     private fun checkUpdate() {
         val initialTime = LocalDateTime.now()
         if (lastUpdateTime == null) {
@@ -44,22 +47,19 @@ object LiveList {
     private fun update(initialTime: LocalDateTime) {
         lastUpdateTime = initialTime
         val response = getResponse()
-        liveList.clear()
-        parseJson(response)
-        logger.info { "LiveList updated at $initialTime" }
+        globalLiveList.clear()
+        liveListFromJSON(response)
+        logger.info { "Updated at $initialTime" }
     }
+
     private fun getResponse(): String {
         val url = "https://api.holotools.app/v1/live?hide_channel_desc=1&lookback_hours=0"
         return URL(url).readText()
     }
-    private fun parseJson(text: String) {
-        logger.debug { text }
+
+    private fun liveListFromJSON(text: String) {
         val liveJSONList = Json {ignoreUnknownKeys = true} .decodeFromString<LiveJSONList>(text)
-        for (live in liveJSONList.live) {
-            if (live.channel.subscriber_count > 50_0000) {
-                liveList.add(live)
-            }
-        }
-        liveList.sortBy { it.channel.name }
+        globalLiveList = liveJSONList.live.filter { it.channel.subscriber_count >= 50_0000 }.toMutableList()
+        globalLiveList.sortBy { it.channel.name }
     }
 }

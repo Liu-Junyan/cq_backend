@@ -11,22 +11,15 @@ import org.http4k.core.Response
 import org.http4k.core.Status.Companion.OK
 import org.http4k.routing.bind
 import org.http4k.routing.routes
-import org.http4k.server.ApacheServer
-import org.http4k.server.asServer
 
 private val logger = KotlinLogging.logger {}
 
-class ServerRunner: Thread() {
-    override fun run() {
-        val app: HttpHandler = routes(
-            "/" bind Method.POST to { req: Request ->
-                processRequest(req)
-                Response(OK)
-            }
-        )
-        app.asServer(ApacheServer(5701)).start()
+val app: HttpHandler = routes(
+    "/" bind Method.POST to { req: Request ->
+        processRequest(req)
+        Response(OK)
     }
-}
+)
 
 fun processRequest(req: Request) {
     val request = req.body.stream.bufferedReader().readLine()
@@ -36,34 +29,33 @@ fun processRequest(req: Request) {
     if (session != null) {
         val matchIndex = Regex("""^\.[0-9]+""").find(message.raw_message)
         if (matchIndex != null) {
-            val respond = responseToIndexCommand(matchIndex.value, session)
-            session.sendMsg(respond)
+            val command = matchIndex.value
+            val respond = responseToIndexCommand(command, session)
+            session.sendMsg(respond, command)
             return
         }
         val match = Regex("""^\.[A-Za-z]+""").find(message.raw_message)
         if (match != null) { // matched
-            val respond = responseToWordCommand(match.value.lowercase(), message.raw_message, session)
-            session.sendMsg(respond)
+            val command = match.value.lowercase()
+            val respond = responseToWordCommand(command, session)
+            session.sendMsg(respond, command)
         }
     } else {
         throw Exception("Recipient not registered.")
     }
 }
 
-fun getSessionFromMessage(message: Message): Session? {
-    val session = if (message.message_type == "private") {
-        SessionPool.getSession(message.user_id, RecipientType.Individual)
-    } else {
-        SessionPool.getSession(message.group_id!!, RecipientType.Group)
-    }
-    return session
+fun getSessionFromMessage(message: Message): Session? = when(message.message_type) {
+    "private" -> SessionPool.getSession(message.user_id, RecipientType.Individual)
+    "group" -> SessionPool.getSession(message.group_id!!, RecipientType.Group)
+    else -> null
 }
 
-fun responseToWordCommand(command: String, full_message: String, session: Session): String = when(command) {
+fun responseToWordCommand(command: String, session: Session): String = when(command) {
     ".help" -> """
         .help -> help page
         .live -> get current live status
-        .[index] -> get detailed info of a live stream
+        .[index] -> get detailed info of a live stream, e.g., .1
     """.trimIndent()
     ".live" -> session.liveMsg()
     else -> "No such command."

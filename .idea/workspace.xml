@@ -9,14 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Implemented a server to respond to POST from cqhttp.">
+    <list default="true" id="65dfd1bf-abf5-4569-80a6-d0907e441650" name="Changes" comment="Bugfix: clone a list instead of refer to it.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shell/release.sh" beforeDir="false" afterPath="$PROJECT_DIR$/shell/release.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Live.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Live.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/LiveList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/LiveList.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Runner.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Session.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Session.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/SessionPool.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/SessionPool.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/server/ServerRunner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/server/ServerRunner.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/recipients.test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/recipients.test.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,8 +117,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.cq_backend.jar" />
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="JAR Application.cq_backend.jar" />
         <item itemvalue="Shell Script.release.sh" />
       </list>
     </recent_temporary>
@@ -237,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628191543394</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Several bugs fixed.">
+      <created>1628227237704</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1628227237704</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,6 +275,8 @@
     <MESSAGE value="Implemented SessionPool" />
     <MESSAGE value="Use object instead of companion object in classes." />
     <MESSAGE value="Implemented a server to respond to POST from cqhttp." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented a server to respond to POST from cqhttp." />
+    <MESSAGE value="Several bugs fixed." />
+    <MESSAGE value="Bugfix: clone a list instead of refer to it." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bugfix: clone a list instead of refer to it." />
   </component>
 </project>

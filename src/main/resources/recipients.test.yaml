@@ -1,7 +1,7 @@
 recipients:
-  - id: 346211313
-    type: Group
-    frequency: 2
+#  - id: 346211313
+#    type: Group
+#    frequency: 2
   - id: 3481131512
     type: Individual
     frequency: 1

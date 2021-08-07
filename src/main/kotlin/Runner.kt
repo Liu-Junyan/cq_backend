@@ -5,12 +5,11 @@ import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.file
 import kotlinx.coroutines.*
 import kotlinx.serialization.decodeFromString
-import mu.KotlinLogging
-import server.ServerRunner
+import org.http4k.server.ApacheServer
+import org.http4k.server.asServer
+import server.app
 import java.io.IOException
 import java.time.LocalDateTime
-
-private val logger = KotlinLogging.logger {}
 
 class Runner: CliktCommand() {
     private val configRecipients by option("-r", "--recipients", help = "Recipients Config path").file()
@@ -25,13 +24,12 @@ class Runner: CliktCommand() {
 
         SessionPool.load(recipientsConfig)
 
-        ServerRunner().start()
+        app.asServer(ApacheServer(5701)).start()
 
         runBlocking {
             while (true) {
                 val currentTime = LocalDateTime.now()
                 val min = if (debugMode) currentTime.second else currentTime.minute
-                logger.debug { "Clock: $min" }
                 launch {
                     SessionPool.periodicFire(min)
                 }

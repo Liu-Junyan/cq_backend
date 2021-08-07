@@ -23,6 +23,7 @@ data class Live(val channel: Channel, var title: String, val yt_video_key: Strin
             ${channel.name}
             $title
             ${getYoutubeURL()}
+            Viewers: $live_viewers
         """.trimIndent()
     }
 }
