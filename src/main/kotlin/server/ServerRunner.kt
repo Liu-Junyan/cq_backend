@@ -24,7 +24,7 @@ val app: HttpHandler = routes(
 fun processRequest(req: Request) {
     val request = req.body.stream.bufferedReader().readLine()
     val message = Json { ignoreUnknownKeys = true }.decodeFromString<Message>(request)
-    logger.info { message }
+    logger.debug { message }
     val session = getSessionFromMessage(message)
     if (session != null) {
         val matchIndex = Regex("""^\.[0-9]+""").find(message.raw_message)

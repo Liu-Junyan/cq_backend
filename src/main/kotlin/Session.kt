@@ -55,6 +55,6 @@ class Session(val recipient: Recipient) {
             "http://127.0.0.1:5700/send_msg?user_id=${recipient.id}&message=$msgModified"
         }
         URL(url).readText()
-        logger.info { "Sent message to ${recipient.type.name} ${recipient.id}." }
+        logger.debug { "Sent message to ${recipient.type.name} ${recipient.id}." }
     }
 }

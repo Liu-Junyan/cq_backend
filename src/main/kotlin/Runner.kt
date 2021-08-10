@@ -26,15 +26,6 @@ class Runner: CliktCommand() {
 
         app.asServer(ApacheServer(5701)).start()
 
-        runBlocking {
-            while (true) {
-                val currentTime = LocalDateTime.now()
-                val min = if (debugMode) currentTime.second else currentTime.minute
-                launch {
-                    SessionPool.periodicFire(min)
-                }
-                delay(if (debugMode) 1_000 else 60_000)
-            }
-        }
+        Scheduler(interval = if (debugMode) 1_000 else 60_000, initialDelay = null, debugMode = debugMode).start()
     }
 }
