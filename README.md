@@ -22,7 +22,6 @@ java -jar cq_backend.jar -r recipients.json
 
 ## Help
 
-Any advise for common problems or issues.
 ```
 java -jar cq_backend.jar -h
 ```
