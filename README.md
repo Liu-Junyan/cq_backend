@@ -1,6 +1,6 @@
 # CQ Backend
 
-A Kotlin application to serve CQ_HTTP bot, which publishes status of Hololive livestreams.
+A Kotlin application to serve CQ_HTTP bot, which publishes status of livestreams.
 
 
 ## Getting Started
